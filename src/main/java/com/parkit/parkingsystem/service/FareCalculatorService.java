@@ -3,6 +3,8 @@ package com.parkit.parkingsystem.service;
 import com.parkit.parkingsystem.constants.Fare;
 import com.parkit.parkingsystem.model.Ticket;
 
+import java.math.BigDecimal;
+
 public class FareCalculatorService {
 
     public void calculateFare(Ticket ticket, boolean discount) {
@@ -23,6 +25,7 @@ public class FareCalculatorService {
         }
         double hours = (double) duration / (60 * 60 * 1000);
 
+        
             switch (ticket.getParkingSpot().getParkingType()) {
                 case CAR: {
                     ticket.setPrice(hours * Fare.CAR_RATE_PER_HOUR);
