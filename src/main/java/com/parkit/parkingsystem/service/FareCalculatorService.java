@@ -16,7 +16,7 @@ public class FareCalculatorService {
         //fixed in millisecondes
         long duration = (outTime - inTime);
 
-        //
+        //Free if less than 30 minutes parking
         if (duration <= 30 * 60 * 1000) {
             ticket.setPrice(0);
             return;
