@@ -28,6 +28,7 @@ public class FareCalculatorServiceTest {
         ticket = new Ticket();
     }
 
+
     @Test
     public void calculateFareCar(){
         Date inTime = new Date();
@@ -150,5 +151,35 @@ public class FareCalculatorServiceTest {
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
         assertEquals( 0, ticket.getPrice());
+    }
+
+    //Test Discount fare ticket if Car plate already into the database
+    @Test
+    public void calculateFareCarWithDiscount(){
+        Date inTime = new Date();
+        inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );//45 minutes parking time should give 3/4th parking fare
+        Date outTime = new Date();
+        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
+
+        ticket.setInTime(inTime);
+        ticket.setOutTime(outTime);
+        ticket.setParkingSpot(parkingSpot);
+        fareCalculatorService.calculateFare(ticket, true);
+        assertEquals( (0.95 * Fare.CAR_RATE_PER_HOUR) , ticket.getPrice());
+    }
+
+    //Test Discount fare ticket if Bike plate already into the database
+    @Test
+    public void calculateFareBikeWithDiscount(){
+        Date inTime = new Date();
+        inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );//45 minutes parking time should give 3/4th parking fare
+        Date outTime = new Date();
+        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE,false);
+
+        ticket.setInTime(inTime);
+        ticket.setOutTime(outTime);
+        ticket.setParkingSpot(parkingSpot);
+        fareCalculatorService.calculateFare(ticket, true);
+        assertEquals( (0.95 * Fare.BIKE_RATE_PER_HOUR) , ticket.getPrice());
     }
 }
