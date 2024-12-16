@@ -45,6 +45,13 @@ public class ParkingService {
                 ticket.setInTime(inTime);
                 ticket.setOutTime(null);
                 ticketDAO.saveTicket(ticket);
+
+                int previousTickets = ticketDAO.getNbTicket(vehicleRegNumber);
+                if (previousTickets > 0) {
+                    System.out.println("Welcome Back, " + vehicleRegNumber + " ! please be aware you get a fidelity discount. ");
+                } else {
+                    System.out.println("Welcome to our parking, " + vehicleRegNumber + " !");
+                }
                 System.out.println("Generated Ticket and saved in DB");
                 System.out.println("Please park your vehicle in spot number:"+parkingSpot.getId());
                 System.out.println("Recorded in-time for vehicle number:"+vehicleRegNumber+" is:"+inTime);
@@ -103,6 +110,9 @@ public class ParkingService {
             Ticket ticket = ticketDAO.getTicket(vehicleRegNumber);
             Date outTime = new Date();
             ticket.setOutTime(outTime);
+            // checking if there is a discount
+            int previousTickets = ticketDAO.getNbTicket(vehicleRegNumber);
+            boolean discount = previousTickets > 1; // discount when you come back
             fareCalculatorService.calculateFare(ticket);
             if(ticketDAO.updateTicket(ticket)) {
                 ParkingSpot parkingSpot = ticket.getParkingSpot();
