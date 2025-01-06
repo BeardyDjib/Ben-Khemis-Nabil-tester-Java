@@ -5,45 +5,41 @@ import com.parkit.parkingsystem.dao.ParkingSpotDAO;
 import com.parkit.parkingsystem.dao.TicketDAO;
 import com.parkit.parkingsystem.model.ParkingSpot;
 import com.parkit.parkingsystem.model.Ticket;
-import com.parkit.parkingsystem.service.FareCalculatorService;
 import com.parkit.parkingsystem.service.ParkingService;
 import com.parkit.parkingsystem.util.InputReaderUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
 public class ParkingServiceTest {
 
-    private ParkingService parkingService; // Non static
+    private ParkingService parkingService;
 
-    @Mock
-    private InputReaderUtil inputReaderUtil; // Non static
-    @Mock
-    private ParkingSpotDAO parkingSpotDAO; // Non static
-    @Mock
-    private TicketDAO ticketDAO; // Non static
+    private InputReaderUtil inputReaderUtil;
+    private ParkingSpotDAO parkingSpotDAO;
+    private TicketDAO ticketDAO;
 
     @BeforeEach
     public void setUpPerTest() {
-        try {
-            // Simulate reading a vehicle registration number (used in all tests)
-            when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
+        // Initialize mocks manually
+        inputReaderUtil = Mockito.mock(InputReaderUtil.class);
+        parkingSpotDAO = Mockito.mock(ParkingSpotDAO.class);
+        ticketDAO = Mockito.mock(TicketDAO.class);
 
-            // Initialize the ParkingService with the mocks
-            parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+        // Simulate reading a vehicle registration number
+        try {
+            when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to set up test mock objects");
+            fail("Failed to stub readVehicleRegistrationNumber: " + e.getMessage());
         }
+
+        // Initialize the ParkingService with the mocks
+        parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
     }
 
     @Test
@@ -60,13 +56,6 @@ public class ParkingServiceTest {
         when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(2); // Mocking getNbTicket()
         when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(true);
         when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
-
-        // Simulate reading the vehicle registration number
-        try {
-            when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
-        } catch (Exception e) {
-            fail("Failed to stub readVehicleRegistrationNumber: " + e.getMessage());
-        }
 
         // WHEN: Execute the action to test
         try {
@@ -87,8 +76,75 @@ public class ParkingServiceTest {
             fail("Failed to verify readVehicleRegistrationNumber: " + e.getMessage());
         }
     }
+
+    @Test
+    void testProcessIncomingVehicle() {
+        // GIVEN: Prepare the context for this specific test
+        int parkingSpotId = 1; // ID of the available parking spot
+        ParkingType parkingType = ParkingType.CAR; // Type of vehicle
+
+        // Simulate that a parking spot is available
+        when(parkingSpotDAO.getNextAvailableSlot(parkingType)).thenReturn(parkingSpotId);
+
+        // Create a ParkingSpot object using the ID
+        ParkingSpot parkingSpot = new ParkingSpot(parkingSpotId, parkingType, true); // Available parking spot
+
+        // Simulate reading the vehicle registration number
+        String vehicleRegNumber = "ABCDEF";
+        try {
+            when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn(vehicleRegNumber);
+        } catch (Exception e) {
+            fail("Failed to stub readVehicleRegistrationNumber: " + e.getMessage());
+        }
+
+        // Simulate selecting the vehicle type (CAR)
+        when(inputReaderUtil.readSelection()).thenReturn(1); // 1 = CAR
+
+        // Simulate that the vehicle has no previous tickets (new customer)
+        when(ticketDAO.getNbTicket(vehicleRegNumber)).thenReturn(0);
+
+        // WHEN: Execute the method under test
+        parkingService.processIncomingVehicle();
+
+        // THEN: Verify the interactions and results
+        verify(parkingSpotDAO).updateParking(parkingSpot); // Verify that the spot is marked as occupied
+        verify(ticketDAO).saveTicket(any(Ticket.class)); // Verify that a ticket is saved
+        verify(ticketDAO).getNbTicket(vehicleRegNumber); // Verify that the number of tickets is checked
+    }
+
+    @Test
+    void processExitingVehicleTestUnableUpdate() {
+        // GIVEN: Prepare the context for this specific test
+        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false); // Occupied parking spot
+        Ticket ticket = new Ticket();
+        ticket.setInTime(new Date(System.currentTimeMillis() - (60 * 60 * 1000))); // 1 hour ago
+        ticket.setParkingSpot(parkingSpot);
+        ticket.setVehicleRegNumber("ABCDEF");
+
+        // Simulate that getTicket() returns this ticket
+        when(ticketDAO.getTicket("ABCDEF")).thenReturn(ticket);
+
+        // Simulate that updateTicket() returns false (update failed)
+        when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(false);
+
+        // Simulate reading the vehicle registration number
+        try {
+            when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
+        } catch (Exception e) {
+            fail("Failed to stub readVehicleRegistrationNumber: " + e.getMessage());
+        }
+
+        // WHEN: Execute the method under test
+        parkingService.processExitingVehicle();
+
+        // THEN: Verify the interactions and results
+        verify(ticketDAO).getTicket("ABCDEF"); // Verify that getTicket() was called
+        verify(ticketDAO).updateTicket(any(Ticket.class)); // Verify that updateTicket() was called
+        verify(parkingSpotDAO, never()).updateParking(any(ParkingSpot.class)); // Verify that updateParking() was never called
+        try {
+            verify(inputReaderUtil).readVehicleRegistrationNumber(); // Verify that readVehicleRegistrationNumber() was called
+        } catch (Exception e) {
+            fail("Failed to verify readVehicleRegistrationNumber: " + e.getMessage());
+        }
+    }
 }
-
-
-
-
