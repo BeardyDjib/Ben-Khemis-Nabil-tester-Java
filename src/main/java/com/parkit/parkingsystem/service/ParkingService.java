@@ -14,8 +14,8 @@ import java.util.Date;
 public class ParkingService {
 
     private static final Logger logger = LogManager.getLogger("ParkingService");
-
-    private static FareCalculatorService fareCalculatorService = new FareCalculatorService();
+    // Rendre fareCalculatorService non statique pour pouvoir injecter un Mock specifique à mon test
+    private FareCalculatorService fareCalculatorService = new FareCalculatorService();
 
     private InputReaderUtil inputReaderUtil;
     private ParkingSpotDAO parkingSpotDAO;
@@ -25,6 +25,10 @@ public class ParkingService {
         this.inputReaderUtil = inputReaderUtil;
         this.parkingSpotDAO = parkingSpotDAO;
         this.ticketDAO = ticketDAO;
+    }
+    // Ajouter un setter pour fareCalculatorService pour injecter mes mocks
+    public void setFareCalculatorService(FareCalculatorService fareCalculatorService) {
+        this.fareCalculatorService = fareCalculatorService;
     }
 
     public void processIncomingVehicle() {
