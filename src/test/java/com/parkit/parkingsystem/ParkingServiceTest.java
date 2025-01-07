@@ -13,7 +13,9 @@ import org.mockito.Mockito;
 
 import java.util.Date;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.fail;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 public class ParkingServiceTest {
@@ -147,4 +149,45 @@ public class ParkingServiceTest {
             fail("Failed to verify readVehicleRegistrationNumber: " + e.getMessage());
         }
     }
+
+    @Test
+    void testGetNextParkingNumberIfAvailable() {
+        // GIVEN
+        int parkingNumber = 1;
+        when(inputReaderUtil.readSelection()).thenReturn(1); // Simulate user selecting CAR
+        ParkingType parkingType = ParkingType.CAR;
+        when(parkingSpotDAO.getNextAvailableSlot(parkingType)).thenReturn(parkingNumber); // Simulate a spot being available
+
+        // WHEN
+        ParkingSpot result = parkingService.getNextParkingNumberIfAvailable(); // Single call to the method
+
+        // THEN
+        assertNotNull(result); // Verify that the result is not null
+        assertThat(result.getId()).isEqualTo(1); // Verify that the ID is 1
+        assertThat(result.getParkingType()).isEqualTo(ParkingType.CAR); // Verify that the type is CAR
+        assertThat(result.isAvailable()).isTrue(); // Verify that the spot is available
+
+        verify(parkingSpotDAO).getNextAvailableSlot(parkingType); // Verify that the method was called once
+        verifyNoMoreInteractions(parkingSpotDAO); // Verify that no other interactions occurred
+    }
+
+    @Test
+    void testGetNextParkingNumberIfAvailableParkingNumberNotFound() {
+        // GIVEN
+        when(inputReaderUtil.readSelection()).thenReturn(1); // Simulate user selecting CAR
+        ParkingType parkingType = ParkingType.CAR;
+        when(parkingSpotDAO.getNextAvailableSlot(parkingType)).thenReturn(0); // Simulate no spot available
+
+        // WHEN
+        ParkingSpot result = parkingService.getNextParkingNumberIfAvailable(); // Call the method
+
+        // THEN
+        assertNull(result); // Verify that the result is null
+        verify(parkingSpotDAO).getNextAvailableSlot(parkingType); // Verify that the method was called once
+        verifyNoMoreInteractions(parkingSpotDAO); // Verify that no other interactions occurred
+    }
+
+    @Test
+    void testGetNextParkingNumberIfAvailableParkingNumberWrongArgument() {
+
 }
