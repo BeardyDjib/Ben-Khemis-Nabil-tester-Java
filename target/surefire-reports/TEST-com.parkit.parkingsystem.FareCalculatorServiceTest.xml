@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.953" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.328" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\Nabil\IdeaProjects\Projet 4 TDD\Ben-khemis-Nabil-tester-Java\target\test-classes;C:\Users\Nabil\IdeaProjects\Projet 4 TDD\Ben-khemis-Nabil-tester-Java\target\classes;C:\Users\Nabil\.m2\repository\org\apache\logging\log4j\log4j-api\2.12.1\log4j-api-2.12.1.jar;C:\Users\Nabil\.m2\repository\org\apache\logging\log4j\log4j-core\2.12.1\log4j-core-2.12.1.jar;C:\Users\Nabil\.m2\repository\mysql\mysql-connector-java\8.0.17\mysql-connector-java-8.0.17.jar;C:\Users\Nabil\.m2\repository\com\google\protobuf\protobuf-java\3.6.1\protobuf-java-3.6.1.jar;C:\Users\Nabil\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.1\junit-jupiter-api-5.8.1.jar;C:\Users\Nabil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Nabil\.m2\repository\org\junit\platform\junit-platform-commons\1.8.1\junit-platform-commons-1.8.1.jar;C:\Users\Nabil\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Nabil\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.1\junit-jupiter-engine-5.8.1.jar;C:\Users\Nabil\.m2\repository\org\junit\platform\junit-platform-engine\1.8.1\junit-platform-engine-1.8.1.jar;C:\Users\Nabil\.m2\repository\org\mockito\mockito-junit-jupiter\4.0.0\mockito-junit-jupiter-4.0.0.jar;C:\Users\Nabil\.m2\repository\org\mockito\mockito-core\4.0.0\mockito-core-4.0.0.jar;C:\Users\Nabil\.m2\repository\net\bytebuddy\byte-buddy\1.11.19\byte-buddy-1.11.19.jar;C:\Users\Nabil\.m2\repository\net\bytebuddy\byte-buddy-agent\1.11.19\byte-buddy-agent-1.11.19.jar;C:\Users\Nabil\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;"/>
+    <property name="java.class.path" value="C:\Users\Nabil\IdeaProjects\Projet 4 TDD\Ben-khemis-Nabil-tester-Java\target\test-classes;C:\Users\Nabil\IdeaProjects\Projet 4 TDD\Ben-khemis-Nabil-tester-Java\target\classes;C:\Users\Nabil\.m2\repository\org\apache\logging\log4j\log4j-api\2.12.1\log4j-api-2.12.1.jar;C:\Users\Nabil\.m2\repository\org\apache\logging\log4j\log4j-core\2.12.1\log4j-core-2.12.1.jar;C:\Users\Nabil\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\Nabil\.m2\repository\net\bytebuddy\byte-buddy\1.12.21\byte-buddy-1.12.21.jar;C:\Users\Nabil\.m2\repository\mysql\mysql-connector-java\8.0.17\mysql-connector-java-8.0.17.jar;C:\Users\Nabil\.m2\repository\com\google\protobuf\protobuf-java\3.6.1\protobuf-java-3.6.1.jar;C:\Users\Nabil\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.1\junit-jupiter-api-5.8.1.jar;C:\Users\Nabil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Nabil\.m2\repository\org\junit\platform\junit-platform-commons\1.8.1\junit-platform-commons-1.8.1.jar;C:\Users\Nabil\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Nabil\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.1\junit-jupiter-engine-5.8.1.jar;C:\Users\Nabil\.m2\repository\org\junit\platform\junit-platform-engine\1.8.1\junit-platform-engine-1.8.1.jar;C:\Users\Nabil\.m2\repository\org\mockito\mockito-junit-jupiter\4.0.0\mockito-junit-jupiter-4.0.0.jar;C:\Users\Nabil\.m2\repository\org\mockito\mockito-core\4.0.0\mockito-core-4.0.0.jar;C:\Users\Nabil\.m2\repository\net\bytebuddy\byte-buddy-agent\1.11.19\byte-buddy-agent-1.11.19.jar;C:\Users\Nabil\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="FR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\Nabil\AppData\Local\Temp\surefire13462096080125447051\surefirebooter7767389931121349002.jar C:\Users\Nabil\AppData\Local\Temp\surefire13462096080125447051 2025-01-06T11-16-24_749-jvmRun1 surefire14491425031251696125tmp surefire_07381717498520295227tmp"/>
+    <property name="sun.java.command" value="C:\Users\Nabil\AppData\Local\Temp\surefire8743695251528626916\surefirebooter548920022132638757.jar C:\Users\Nabil\AppData\Local\Temp\surefire8743695251528626916 2025-01-08T15-38-59_029-jvmRun1 surefire14527978741376394775tmp surefire_09544652949119555676tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\Nabil\IdeaProjects\Projet 4 TDD\Ben-khemis-Nabil-tester-Java\target\test-classes;C:\Users\Nabil\IdeaProjects\Projet 4 TDD\Ben-khemis-Nabil-tester-Java\target\classes;C:\Users\Nabil\.m2\repository\org\apache\logging\log4j\log4j-api\2.12.1\log4j-api-2.12.1.jar;C:\Users\Nabil\.m2\repository\org\apache\logging\log4j\log4j-core\2.12.1\log4j-core-2.12.1.jar;C:\Users\Nabil\.m2\repository\mysql\mysql-connector-java\8.0.17\mysql-connector-java-8.0.17.jar;C:\Users\Nabil\.m2\repository\com\google\protobuf\protobuf-java\3.6.1\protobuf-java-3.6.1.jar;C:\Users\Nabil\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.1\junit-jupiter-api-5.8.1.jar;C:\Users\Nabil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Nabil\.m2\repository\org\junit\platform\junit-platform-commons\1.8.1\junit-platform-commons-1.8.1.jar;C:\Users\Nabil\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Nabil\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.1\junit-jupiter-engine-5.8.1.jar;C:\Users\Nabil\.m2\repository\org\junit\platform\junit-platform-engine\1.8.1\junit-platform-engine-1.8.1.jar;C:\Users\Nabil\.m2\repository\org\mockito\mockito-junit-jupiter\4.0.0\mockito-junit-jupiter-4.0.0.jar;C:\Users\Nabil\.m2\repository\org\mockito\mockito-core\4.0.0\mockito-core-4.0.0.jar;C:\Users\Nabil\.m2\repository\net\bytebuddy\byte-buddy\1.11.19\byte-buddy-1.11.19.jar;C:\Users\Nabil\.m2\repository\net\bytebuddy\byte-buddy-agent\1.11.19\byte-buddy-agent-1.11.19.jar;C:\Users\Nabil\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\Nabil\IdeaProjects\Projet 4 TDD\Ben-khemis-Nabil-tester-Java\target\test-classes;C:\Users\Nabil\IdeaProjects\Projet 4 TDD\Ben-khemis-Nabil-tester-Java\target\classes;C:\Users\Nabil\.m2\repository\org\apache\logging\log4j\log4j-api\2.12.1\log4j-api-2.12.1.jar;C:\Users\Nabil\.m2\repository\org\apache\logging\log4j\log4j-core\2.12.1\log4j-core-2.12.1.jar;C:\Users\Nabil\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\Nabil\.m2\repository\net\bytebuddy\byte-buddy\1.12.21\byte-buddy-1.12.21.jar;C:\Users\Nabil\.m2\repository\mysql\mysql-connector-java\8.0.17\mysql-connector-java-8.0.17.jar;C:\Users\Nabil\.m2\repository\com\google\protobuf\protobuf-java\3.6.1\protobuf-java-3.6.1.jar;C:\Users\Nabil\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.1\junit-jupiter-api-5.8.1.jar;C:\Users\Nabil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Nabil\.m2\repository\org\junit\platform\junit-platform-commons\1.8.1\junit-platform-commons-1.8.1.jar;C:\Users\Nabil\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Nabil\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.1\junit-jupiter-engine-5.8.1.jar;C:\Users\Nabil\.m2\repository\org\junit\platform\junit-platform-engine\1.8.1\junit-platform-engine-1.8.1.jar;C:\Users\Nabil\.m2\repository\org\mockito\mockito-junit-jupiter\4.0.0\mockito-junit-jupiter-4.0.0.jar;C:\Users\Nabil\.m2\repository\org\mockito\mockito-core\4.0.0\mockito-core-4.0.0.jar;C:\Users\Nabil\.m2\repository\net\bytebuddy\byte-buddy-agent\1.11.19\byte-buddy-agent-1.11.19.jar;C:\Users\Nabil\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Nabil"/>
     <property name="user.language" value="fr"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Nabil\AppData\Local\Temp\surefire13462096080125447051\surefirebooter7767389931121349002.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Nabil\AppData\Local\Temp\surefire8743695251528626916\surefirebooter548920022132638757.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.4+8-LTS-274"/>
@@ -44,6 +44,7 @@
     <property name="localRepository" value="C:\Users\Nabil\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\Nabil\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2024.2.4"/>
     <property name="java.version" value="21.0.4"/>
     <property name="user.dir" value="C:\Users\Nabil\IdeaProjects\Projet 4 TDD\Ben-khemis-Nabil-tester-Java"/>
     <property name="os.arch" value="amd64"/>
@@ -58,15 +59,15 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="calculateFareBikeWithLessThan30minutesParkingTimeDescription" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.053"/>
-  <testcase name="calculateFareBikeWithDiscount" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.002"/>
+  <testcase name="calculateFareBikeWithLessThan30minutesParkingTimeDescription" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.065"/>
+  <testcase name="calculateFareBikeWithDiscount" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0"/>
   <testcase name="calculateFareCarWithLessThanOneHourParkingTime" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0"/>
-  <testcase name="calculateFareCarWithDiscount" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.001"/>
-  <testcase name="calculateFareUnkownType" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.003"/>
+  <testcase name="calculateFareCarWithDiscount" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0"/>
+  <testcase name="calculateFareUnkownType" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.019"/>
   <testcase name="calculateFareCar" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0"/>
-  <testcase name="calculateFareBike" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0"/>
+  <testcase name="calculateFareBike" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.001"/>
   <testcase name="calculateFareCarWithMoreThanADayParkingTime" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0"/>
-  <testcase name="calculateFareCarWithLessThan30minutesParkingTimeDescription" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0"/>
+  <testcase name="calculateFareCarWithLessThan30minutesParkingTimeDescription" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.001"/>
   <testcase name="calculateFareBikeWithLessThanOneHourParkingTime" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.001"/>
-  <testcase name="calculateFareBikeWithFutureInTime" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.848"/>
+  <testcase name="calculateFareBikeWithFutureInTime" classname="com.parkit.parkingsystem.FareCalculatorServiceTest" time="0.126"/>
 </testsuite>

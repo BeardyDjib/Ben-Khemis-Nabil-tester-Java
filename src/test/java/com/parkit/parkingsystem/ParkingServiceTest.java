@@ -13,6 +13,7 @@ import org.mockito.Mockito;
 
 import java.util.Date;
 
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -189,5 +190,17 @@ public class ParkingServiceTest {
 
     @Test
     void testGetNextParkingNumberIfAvailableParkingNumberWrongArgument() {
+        // GIVEN
+        when(inputReaderUtil.readSelection()).thenReturn(3);
+
+        // WHEN
+        ParkingSpot result = parkingService.getNextParkingNumberIfAvailable(); // Call the method
+
+        // THEN
+        assertNull(result, "method should return null");
+        verifyNoMoreInteractions(parkingSpotDAO);
+
+
+    }
 
 }
