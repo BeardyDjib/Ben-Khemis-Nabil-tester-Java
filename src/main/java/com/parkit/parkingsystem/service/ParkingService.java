@@ -109,26 +109,43 @@ public class ParkingService {
     }
 
     public void processExitingVehicle() {
-        try{
+        try {
+            // Step 1: Get the vehicle registration number
             String vehicleRegNumber = getVehichleRegNumber();
+
+            // Step 2: Retrieve the ticket from the database
             Ticket ticket = ticketDAO.getTicket(vehicleRegNumber);
+            if (ticket == null) {
+                logger.error("Unable to find ticket for vehicle: " + vehicleRegNumber);
+                return;
+            }
+
+            // Step 3: Set the out time
             Date outTime = new Date();
             ticket.setOutTime(outTime);
-            // checking if there is a discount
+
+            // Step 4: Check if the user is recurring
             int previousTickets = ticketDAO.getNbTicket(vehicleRegNumber);
-            boolean discount = previousTickets > 1; // discount when you come back
-            fareCalculatorService.calculateFare(ticket);
-            if(ticketDAO.updateTicket(ticket)) {
+            boolean discount = previousTickets > 1; // Apply discount if the user is recurring
+
+            // Step 5: Adding Calculate the fare with the discount
+            fareCalculatorService.calculateFare(ticket, discount);
+
+            // Step 6: Update the ticket in the database
+            if (ticketDAO.updateTicket(ticket)) {
+                // Step 7: Free the parking spot
                 ParkingSpot parkingSpot = ticket.getParkingSpot();
                 parkingSpot.setAvailable(true);
                 parkingSpotDAO.updateParking(parkingSpot);
+
+                // Step 8: Payment information
                 System.out.println("Please pay the parking fare:" + ticket.getPrice());
-                System.out.println("Recorded out-time for vehicle number:" + ticket.getVehicleRegNumber() + " is:" + outTime);
-            }else{
+                System.out.println("Recorded out-time for vehicle number:" + vehicleRegNumber + " is:" + outTime);
+            } else {
                 System.out.println("Unable to update ticket information. Error occurred");
             }
-        }catch(Exception e){
-            logger.error("Unable to process exiting vehicle",e);
+        } catch (Exception e) {
+            logger.error("Unable to process exiting vehicle", e);
         }
     }
 }

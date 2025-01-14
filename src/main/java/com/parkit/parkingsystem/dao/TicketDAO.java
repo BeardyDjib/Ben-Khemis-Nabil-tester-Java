@@ -34,9 +34,10 @@ public class TicketDAO {
             return ps.execute();
         } catch (Exception ex) {
             logger.error("Error fetching next available slot", ex);
+            return false; // Deplacer le return false de finally sinon c'est toujours false à tort
         } finally {
             dataBaseConfig.closeConnection(con);
-            return false;
+
         }
     }
 
