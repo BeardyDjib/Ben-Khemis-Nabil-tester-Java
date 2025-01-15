@@ -127,59 +127,79 @@ public class FareCalculatorServiceTest {
     //Test for free fare ticket if less than 30 minutes parking for Car
     @Test
     public void calculateFareCarWithLessThan30minutesParkingTimeDescription(){
+        // GIVEN: A car parked for 15 minutes
         Date inTime = new Date();
-        inTime.setTime( System.currentTimeMillis() - (  15 * 60 * 1000) );//15 minutes parking time should give free parking fare
+        inTime.setTime( System.currentTimeMillis() - (  15 * 60 * 1000) );
         Date outTime = new Date();
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
 
         ticket.setInTime(inTime);
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
+
+        // WHEN: The fare is calculated
         fareCalculatorService.calculateFare(ticket);
-        assertEquals( 0, ticket.getPrice());
+
+        // THEN: The fare should be 0 (free parking for less than 30 minutes)
+        assertEquals(0, ticket.getPrice());
     }
     //Test for free fare ticket if less than 30 minutes parking for Bike
     @Test
     public void calculateFareBikeWithLessThan30minutesParkingTimeDescription(){
+        // GIVEN: A bike parked for 15 minutes
         Date inTime = new Date();
-        inTime.setTime( System.currentTimeMillis() - (  15 * 60 * 1000) );//15 minutes parking time should give free parking fare
+        inTime.setTime( System.currentTimeMillis() - (  15 * 60 * 1000) );
         Date outTime = new Date();
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE,false);
 
         ticket.setInTime(inTime);
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
+
+        // WHEN: The fare is calculated
         fareCalculatorService.calculateFare(ticket);
-        assertEquals( 0, ticket.getPrice());
+
+        // THEN: The fare should be 0 (free parking for less than 30 minutes)
+        assertEquals(0, ticket.getPrice());
     }
 
     //Test Discount fare ticket if Car plate already into the database
     @Test
     public void calculateFareCarWithDiscount(){
+        // GIVEN: A car parked for 45 minutes with a discount (recurring user)
         Date inTime = new Date();
-        inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );//45 minutes parking time should give 3/4th parking fare
+        inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );
         Date outTime = new Date();
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
 
         ticket.setInTime(inTime);
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
+
+        // WHEN: The fare is calculated with a discount
         fareCalculatorService.calculateFare(ticket, true);
-        assertEquals( (0.75 * Fare.CAR_RATE_PER_HOUR * 0.95) , ticket.getPrice());//We apply first 0.75 for 45minutes and then the 0.95 for the discount
+
+        // THEN: The fare should be 75% of the car rate per hour with a 5% discount
+        assertEquals((0.75 * Fare.CAR_RATE_PER_HOUR * 0.95), ticket.getPrice());
     }
 
     //Test Discount fare ticket if Bike plate already into the database
     @Test
     public void calculateFareBikeWithDiscount(){
+        // GIVEN: A bike parked for 45 minutes with a discount (recurring user)
         Date inTime = new Date();
-        inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );//45 minutes parking time should give 3/4th parking fare
+        inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );
         Date outTime = new Date();
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE,false);
 
         ticket.setInTime(inTime);
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
+
+        // WHEN: The fare is calculated with a discount
         fareCalculatorService.calculateFare(ticket, true);
-        assertEquals( (0.75 * Fare.BIKE_RATE_PER_HOUR * 0.95) , ticket.getPrice()); //We apply first 0.75 for 45minutes and then the 0.95 for the discount
+
+        // THEN: The fare should be 75% of the bike rate per hour with a 5% discount
+        assertEquals((0.75 * Fare.BIKE_RATE_PER_HOUR * 0.95), ticket.getPrice());
     }
 }

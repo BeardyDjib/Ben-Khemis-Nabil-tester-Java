@@ -66,6 +66,21 @@ public class ParkingSpotDAOTest {
         assertEquals(-1, result, "The result should be -1 in case of error");
     }
     @Test
+    void testGetNextAvailableSlot_NoAvailableSlot() throws Exception {
+        // GIVEN: Simulate a query with no results
+        when(dataBaseConfig.getConnection()).thenReturn(connection);
+        when(connection.prepareStatement(any(String.class))).thenReturn(preparedStatement);
+        when(preparedStatement.executeQuery()).thenReturn(resultSet);
+        when(resultSet.next()).thenReturn(false); // No rows returned
+
+        // WHEN: Get the next available slot
+        int result = parkingSpotDAO.getNextAvailableSlot(ParkingType.CAR);
+
+        // THEN: Verify that the result is -1 (no available slot)
+        assertEquals(-1, result, "The result should be -1 if no slot is available");
+        verify(preparedStatement, times(1)).executeQuery();
+    }
+    @Test
     void testUpdateParking_Success() throws Exception {
         // GIVEN: Simulate a successful update
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false); // Simulate a parking spot
@@ -108,6 +123,24 @@ public class ParkingSpotDAOTest {
 
         // THEN: Verify that the update failed
         assertFalse(result, "The update should fail if no rows are updated");
+        verify(preparedStatement, times(1)).executeUpdate();
+    }
+    @Test
+    void testUpdateParking_Parameters() throws Exception {
+        // GIVEN: Simulate a successful update
+        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
+
+        when(dataBaseConfig.getConnection()).thenReturn(connection);
+        when(connection.prepareStatement(any(String.class))).thenReturn(preparedStatement);
+        when(preparedStatement.executeUpdate()).thenReturn(1);
+
+        // WHEN: Update the parking spot
+        boolean result = parkingSpotDAO.updateParking(parkingSpot);
+
+        // THEN: Verify that the parameters are set correctly
+        assertTrue(result, "The parking spot should be updated successfully");
+        verify(preparedStatement).setBoolean(1, parkingSpot.isAvailable());
+        verify(preparedStatement).setInt(2, parkingSpot.getId());
         verify(preparedStatement, times(1)).executeUpdate();
     }
 

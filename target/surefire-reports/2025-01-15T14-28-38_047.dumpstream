@@ -1,0 +1,684 @@
+# Created at 2025-01-15T14:28:40.260
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting sun/util/resources/cldr/provider/CLDRLocaleDataMetaInfo.
+
+# Created at 2025-01-15T14:28:40.261
+	at org.jacoco.agent.rt.internal_43f5073.CoverageTransformer.transform(CoverageTransformer.java:94)
+
+# Created at 2025-01-15T14:28:40.261
+	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
+
+# Created at 2025-01-15T14:28:40.262
+	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+
+# Created at 2025-01-15T14:28:40.263
+	at java.instrument/sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:610)
+
+# Created at 2025-01-15T14:28:40.263
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+
+# Created at 2025-01-15T14:28:40.264
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1118)
+
+# Created at 2025-01-15T14:28:40.264
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:182)
+
+# Created at 2025-01-15T14:28:40.265
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:821)
+
+# Created at 2025-01-15T14:28:40.265
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassInModuleOrNull(BuiltinClassLoader.java:741)
+
+# Created at 2025-01-15T14:28:40.266
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClass(BuiltinClassLoader.java:621)
+
+# Created at 2025-01-15T14:28:40.267
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:638)
+
+# Created at 2025-01-15T14:28:40.267
+	at java.base/java.lang.Class.forName(Class.java:625)
+
+# Created at 2025-01-15T14:28:40.268
+	at java.base/java.lang.Class.forName(Class.java:600)
+
+# Created at 2025-01-15T14:28:40.268
+	at java.base/java.util.ServiceLoader.loadProvider(ServiceLoader.java:859)
+
+# Created at 2025-01-15T14:28:40.269
+	at java.base/java.util.ServiceLoader$ModuleServicesLookupIterator.hasNext(ServiceLoader.java:1084)
+
+# Created at 2025-01-15T14:28:40.269
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1309)
+
+# Created at 2025-01-15T14:28:40.270
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1393)
+
+# Created at 2025-01-15T14:28:40.270
+	at java.base/sun.util.cldr.CLDRLocaleProviderAdapter.lambda$new$0(CLDRLocaleProviderAdapter.java:84)
+
+# Created at 2025-01-15T14:28:40.271
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:571)
+
+# Created at 2025-01-15T14:28:40.271
+	at java.base/sun.util.cldr.CLDRLocaleProviderAdapter.<init>(CLDRLocaleProviderAdapter.java:83)
+
+# Created at 2025-01-15T14:28:40.272
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+
+# Created at 2025-01-15T14:28:40.272
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+
+# Created at 2025-01-15T14:28:40.273
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+
+# Created at 2025-01-15T14:28:40.273
+	at java.base/sun.util.locale.provider.LocaleProviderAdapter.forType(LocaleProviderAdapter.java:194)
+
+# Created at 2025-01-15T14:28:40.274
+	at java.base/sun.util.locale.provider.LocaleProviderAdapter.findAdapter(LocaleProviderAdapter.java:293)
+
+# Created at 2025-01-15T14:28:40.274
+	at java.base/sun.util.locale.provider.LocaleProviderAdapter.getAdapter(LocaleProviderAdapter.java:264)
+
+# Created at 2025-01-15T14:28:40.275
+	at java.base/java.util.Calendar.createCalendar(Calendar.java:1696)
+
+# Created at 2025-01-15T14:28:40.276
+	at java.base/java.util.Calendar.getInstance(Calendar.java:1663)
+
+# Created at 2025-01-15T14:28:40.276
+	at java.base/java.text.SimpleDateFormat.initializeCalendar(SimpleDateFormat.java:680)
+
+# Created at 2025-01-15T14:28:40.277
+	at java.base/java.text.SimpleDateFormat.<init>(SimpleDateFormat.java:624)
+
+# Created at 2025-01-15T14:28:40.277
+	at java.base/java.text.SimpleDateFormat.<init>(SimpleDateFormat.java:603)
+
+# Created at 2025-01-15T14:28:40.278
+	at org.apache.maven.surefire.booter.PpidChecker.createWindowsCreationDateFormat(PpidChecker.java:316)
+
+# Created at 2025-01-15T14:28:40.279
+	at org.apache.maven.surefire.booter.PpidChecker.<clinit>(PpidChecker.java:62)
+
+# Created at 2025-01-15T14:28:40.279
+	at org.apache.maven.surefire.booter.ForkedBooter.listenToShutdownCommands(ForkedBooter.java:191)
+
+# Created at 2025-01-15T14:28:40.280
+	at org.apache.maven.surefire.booter.ForkedBooter.setupBooter(ForkedBooter.java:94)
+
+# Created at 2025-01-15T14:28:40.280
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
+
+# Created at 2025-01-15T14:28:40.281
+Caused by: java.io.IOException: Error while instrumenting sun/util/resources/cldr/provider/CLDRLocaleDataMetaInfo.
+
+# Created at 2025-01-15T14:28:40.281
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrumentError(Instrumenter.java:159)
+
+# Created at 2025-01-15T14:28:40.282
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:109)
+
+# Created at 2025-01-15T14:28:40.282
+	at org.jacoco.agent.rt.internal_43f5073.CoverageTransformer.transform(CoverageTransformer.java:92)
+
+# Created at 2025-01-15T14:28:40.283
+	... 35 more
+
+# Created at 2025-01-15T14:28:40.284
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+
+# Created at 2025-01-15T14:28:40.284
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:195)
+
+# Created at 2025-01-15T14:28:40.285
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:176)
+
+# Created at 2025-01-15T14:28:40.285
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:162)
+
+# Created at 2025-01-15T14:28:40.286
+	at org.jacoco.agent.rt.internal_43f5073.core.internal.instr.InstrSupport.classReaderFor(InstrSupport.java:280)
+
+# Created at 2025-01-15T14:28:40.286
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:75)
+
+# Created at 2025-01-15T14:28:40.287
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:107)
+
+# Created at 2025-01-15T14:28:40.287
+	... 36 more
+
+# Created at 2025-01-15T14:28:40.300
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting sun/util/resources/provider/LocaleDataProvider.
+
+# Created at 2025-01-15T14:28:40.301
+	at org.jacoco.agent.rt.internal_43f5073.CoverageTransformer.transform(CoverageTransformer.java:94)
+
+# Created at 2025-01-15T14:28:40.302
+	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
+
+# Created at 2025-01-15T14:28:40.302
+	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+
+# Created at 2025-01-15T14:28:40.303
+	at java.instrument/sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:610)
+
+# Created at 2025-01-15T14:28:40.303
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+
+# Created at 2025-01-15T14:28:40.305
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1118)
+
+# Created at 2025-01-15T14:28:40.314
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:182)
+
+# Created at 2025-01-15T14:28:40.315
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:821)
+
+# Created at 2025-01-15T14:28:40.317
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassInModuleOrNull(BuiltinClassLoader.java:741)
+
+# Created at 2025-01-15T14:28:40.317
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClass(BuiltinClassLoader.java:621)
+
+# Created at 2025-01-15T14:28:40.318
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:638)
+
+# Created at 2025-01-15T14:28:40.319
+	at java.base/java.lang.Class.forName(Class.java:625)
+
+# Created at 2025-01-15T14:28:40.319
+	at java.base/java.lang.Class.forName(Class.java:600)
+
+# Created at 2025-01-15T14:28:40.320
+	at java.base/java.util.ServiceLoader.loadProvider(ServiceLoader.java:859)
+
+# Created at 2025-01-15T14:28:40.320
+	at java.base/java.util.ServiceLoader$ModuleServicesLookupIterator.hasNext(ServiceLoader.java:1084)
+
+# Created at 2025-01-15T14:28:40.321
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1309)
+
+# Created at 2025-01-15T14:28:40.321
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1393)
+
+# Created at 2025-01-15T14:28:40.322
+	at java.base/sun.util.resources.Bundles$2.run(Bundles.java:267)
+
+# Created at 2025-01-15T14:28:40.322
+	at java.base/sun.util.resources.Bundles$2.run(Bundles.java:265)
+
+# Created at 2025-01-15T14:28:40.322
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+
+# Created at 2025-01-15T14:28:40.323
+	at java.base/sun.util.resources.Bundles.loadBundleFromProviders(Bundles.java:264)
+
+# Created at 2025-01-15T14:28:40.323
+	at java.base/sun.util.resources.Bundles.findBundleOf(Bundles.java:201)
+
+# Created at 2025-01-15T14:28:40.324
+	at java.base/sun.util.resources.Bundles.findBundleOf(Bundles.java:160)
+
+# Created at 2025-01-15T14:28:40.324
+	at java.base/sun.util.resources.Bundles.loadBundleOf(Bundles.java:145)
+
+# Created at 2025-01-15T14:28:40.325
+	at java.base/sun.util.resources.Bundles.of(Bundles.java:106)
+
+# Created at 2025-01-15T14:28:40.328
+	at java.base/sun.util.resources.LocaleData$1.run(LocaleData.java:185)
+
+# Created at 2025-01-15T14:28:40.332
+	at java.base/sun.util.resources.LocaleData$1.run(LocaleData.java:182)
+
+# Created at 2025-01-15T14:28:40.348
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+
+# Created at 2025-01-15T14:28:40.351
+	at java.base/sun.util.resources.LocaleData.getBundle(LocaleData.java:182)
+
+# Created at 2025-01-15T14:28:40.352
+	at java.base/sun.util.resources.LocaleData.getDateFormatData(LocaleData.java:145)
+
+# Created at 2025-01-15T14:28:40.358
+	at java.base/java.text.DateFormatSymbols.initializeData(DateFormatSymbols.java:747)
+
+# Created at 2025-01-15T14:28:40.393
+	at java.base/java.text.DateFormatSymbols.<init>(DateFormatSymbols.java:151)
+
+# Created at 2025-01-15T14:28:40.400
+	at java.base/sun.util.locale.provider.DateFormatSymbolsProviderImpl.getInstance(DateFormatSymbolsProviderImpl.java:85)
+
+# Created at 2025-01-15T14:28:40.401
+	at java.base/java.text.DateFormatSymbols.getProviderInstance(DateFormatSymbols.java:371)
+
+# Created at 2025-01-15T14:28:40.401
+	at java.base/java.text.DateFormatSymbols.getInstanceRef(DateFormatSymbols.java:361)
+
+# Created at 2025-01-15T14:28:40.402
+	at java.base/java.text.SimpleDateFormat.<init>(SimpleDateFormat.java:626)
+
+# Created at 2025-01-15T14:28:40.403
+	at java.base/java.text.SimpleDateFormat.<init>(SimpleDateFormat.java:603)
+
+# Created at 2025-01-15T14:28:40.403
+	at org.apache.maven.surefire.booter.PpidChecker.createWindowsCreationDateFormat(PpidChecker.java:316)
+
+# Created at 2025-01-15T14:28:40.445
+	at org.apache.maven.surefire.booter.PpidChecker.<clinit>(PpidChecker.java:62)
+
+# Created at 2025-01-15T14:28:40.471
+	at org.apache.maven.surefire.booter.ForkedBooter.listenToShutdownCommands(ForkedBooter.java:191)
+
+# Created at 2025-01-15T14:28:40.489
+	at org.apache.maven.surefire.booter.ForkedBooter.setupBooter(ForkedBooter.java:94)
+
+# Created at 2025-01-15T14:28:40.490
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
+
+# Created at 2025-01-15T14:28:40.490
+Caused by: java.io.IOException: Error while instrumenting sun/util/resources/provider/LocaleDataProvider.
+
+# Created at 2025-01-15T14:28:40.491
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrumentError(Instrumenter.java:159)
+
+# Created at 2025-01-15T14:28:40.491
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:109)
+
+# Created at 2025-01-15T14:28:40.492
+	at org.jacoco.agent.rt.internal_43f5073.CoverageTransformer.transform(CoverageTransformer.java:92)
+
+# Created at 2025-01-15T14:28:40.492
+	... 41 more
+
+# Created at 2025-01-15T14:28:40.499
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+
+# Created at 2025-01-15T14:28:40.499
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:195)
+
+# Created at 2025-01-15T14:28:40.500
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:176)
+
+# Created at 2025-01-15T14:28:40.500
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:162)
+
+# Created at 2025-01-15T14:28:40.501
+	at org.jacoco.agent.rt.internal_43f5073.core.internal.instr.InstrSupport.classReaderFor(InstrSupport.java:280)
+
+# Created at 2025-01-15T14:28:40.501
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:75)
+
+# Created at 2025-01-15T14:28:40.502
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:107)
+
+# Created at 2025-01-15T14:28:40.505
+	... 42 more
+
+# Created at 2025-01-15T14:28:40.540
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting sun/text/resources/cldr/ext/FormatData_fr.
+
+# Created at 2025-01-15T14:28:40.546
+	at org.jacoco.agent.rt.internal_43f5073.CoverageTransformer.transform(CoverageTransformer.java:94)
+
+# Created at 2025-01-15T14:28:40.550
+	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
+
+# Created at 2025-01-15T14:28:40.564
+	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+
+# Created at 2025-01-15T14:28:40.623
+	at java.instrument/sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:610)
+
+# Created at 2025-01-15T14:28:40.624
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+
+# Created at 2025-01-15T14:28:40.628
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1118)
+
+# Created at 2025-01-15T14:28:40.628
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:182)
+
+# Created at 2025-01-15T14:28:40.629
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:821)
+
+# Created at 2025-01-15T14:28:40.632
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassInModuleOrNull(BuiltinClassLoader.java:741)
+
+# Created at 2025-01-15T14:28:40.634
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClass(BuiltinClassLoader.java:621)
+
+# Created at 2025-01-15T14:28:40.635
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:638)
+
+# Created at 2025-01-15T14:28:40.638
+	at java.base/java.lang.Class.forName(Class.java:625)
+
+# Created at 2025-01-15T14:28:40.641
+	at java.base/java.lang.Class.forName(Class.java:600)
+
+# Created at 2025-01-15T14:28:40.643
+	at jdk.localedata/sun.util.resources.provider.LocaleDataProvider.loadResourceBundle(LocaleDataProvider.java:54)
+
+# Created at 2025-01-15T14:28:40.644
+	at jdk.localedata/sun.util.resources.provider.LocaleDataProvider.getBundle(LocaleDataProvider.java:40)
+
+# Created at 2025-01-15T14:28:40.646
+	at java.base/sun.util.resources.Bundles$2.run(Bundles.java:270)
+
+# Created at 2025-01-15T14:28:40.646
+	at java.base/sun.util.resources.Bundles$2.run(Bundles.java:265)
+
+# Created at 2025-01-15T14:28:40.648
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+
+# Created at 2025-01-15T14:28:40.649
+	at java.base/sun.util.resources.Bundles.loadBundleFromProviders(Bundles.java:264)
+
+# Created at 2025-01-15T14:28:40.650
+	at java.base/sun.util.resources.Bundles.findBundleOf(Bundles.java:201)
+
+# Created at 2025-01-15T14:28:40.651
+	at java.base/sun.util.resources.Bundles.findBundleOf(Bundles.java:160)
+
+# Created at 2025-01-15T14:28:40.652
+	at java.base/sun.util.resources.Bundles.loadBundleOf(Bundles.java:145)
+
+# Created at 2025-01-15T14:28:40.652
+	at java.base/sun.util.resources.Bundles.of(Bundles.java:106)
+
+# Created at 2025-01-15T14:28:40.653
+	at java.base/sun.util.resources.LocaleData$1.run(LocaleData.java:185)
+
+# Created at 2025-01-15T14:28:40.653
+	at java.base/sun.util.resources.LocaleData$1.run(LocaleData.java:182)
+
+# Created at 2025-01-15T14:28:40.654
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+
+# Created at 2025-01-15T14:28:40.654
+	at java.base/sun.util.resources.LocaleData.getBundle(LocaleData.java:182)
+
+# Created at 2025-01-15T14:28:40.655
+	at java.base/sun.util.resources.LocaleData.getDateFormatData(LocaleData.java:145)
+
+# Created at 2025-01-15T14:28:40.655
+	at java.base/java.text.DateFormatSymbols.initializeData(DateFormatSymbols.java:747)
+
+# Created at 2025-01-15T14:28:40.656
+	at java.base/java.text.DateFormatSymbols.<init>(DateFormatSymbols.java:151)
+
+# Created at 2025-01-15T14:28:40.656
+	at java.base/sun.util.locale.provider.DateFormatSymbolsProviderImpl.getInstance(DateFormatSymbolsProviderImpl.java:85)
+
+# Created at 2025-01-15T14:28:40.657
+	at java.base/java.text.DateFormatSymbols.getProviderInstance(DateFormatSymbols.java:371)
+
+# Created at 2025-01-15T14:28:40.658
+	at java.base/java.text.DateFormatSymbols.getInstanceRef(DateFormatSymbols.java:361)
+
+# Created at 2025-01-15T14:28:40.659
+	at java.base/java.text.SimpleDateFormat.<init>(SimpleDateFormat.java:626)
+
+# Created at 2025-01-15T14:28:40.660
+	at java.base/java.text.SimpleDateFormat.<init>(SimpleDateFormat.java:603)
+
+# Created at 2025-01-15T14:28:40.660
+	at org.apache.maven.surefire.booter.PpidChecker.createWindowsCreationDateFormat(PpidChecker.java:316)
+
+# Created at 2025-01-15T14:28:40.661
+	at org.apache.maven.surefire.booter.PpidChecker.<clinit>(PpidChecker.java:62)
+
+# Created at 2025-01-15T14:28:40.661
+	at org.apache.maven.surefire.booter.ForkedBooter.listenToShutdownCommands(ForkedBooter.java:191)
+
+# Created at 2025-01-15T14:28:40.662
+	at org.apache.maven.surefire.booter.ForkedBooter.setupBooter(ForkedBooter.java:94)
+
+# Created at 2025-01-15T14:28:40.662
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
+
+# Created at 2025-01-15T14:28:40.663
+Caused by: java.io.IOException: Error while instrumenting sun/text/resources/cldr/ext/FormatData_fr.
+
+# Created at 2025-01-15T14:28:40.664
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrumentError(Instrumenter.java:159)
+
+# Created at 2025-01-15T14:28:40.664
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:109)
+
+# Created at 2025-01-15T14:28:40.665
+	at org.jacoco.agent.rt.internal_43f5073.CoverageTransformer.transform(CoverageTransformer.java:92)
+
+# Created at 2025-01-15T14:28:40.665
+	... 39 more
+
+# Created at 2025-01-15T14:28:40.666
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+
+# Created at 2025-01-15T14:28:40.666
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:195)
+
+# Created at 2025-01-15T14:28:40.667
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:176)
+
+# Created at 2025-01-15T14:28:40.668
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:162)
+
+# Created at 2025-01-15T14:28:40.668
+	at org.jacoco.agent.rt.internal_43f5073.core.internal.instr.InstrSupport.classReaderFor(InstrSupport.java:280)
+
+# Created at 2025-01-15T14:28:40.668
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:75)
+
+# Created at 2025-01-15T14:28:40.669
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:107)
+
+# Created at 2025-01-15T14:28:40.669
+	... 40 more
+
+# Created at 2025-01-15T14:28:40.670
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting java/sql/SQLException.
+
+# Created at 2025-01-15T14:28:40.670
+	at org.jacoco.agent.rt.internal_43f5073.CoverageTransformer.transform(CoverageTransformer.java:94)
+
+# Created at 2025-01-15T14:28:40.671
+	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
+
+# Created at 2025-01-15T14:28:40.672
+	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+
+# Created at 2025-01-15T14:28:40.672
+	at java.instrument/sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:610)
+
+# Created at 2025-01-15T14:28:40.674
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+
+# Created at 2025-01-15T14:28:40.674
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1118)
+
+# Created at 2025-01-15T14:28:40.676
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:182)
+
+# Created at 2025-01-15T14:28:40.678
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:821)
+
+# Created at 2025-01-15T14:28:40.679
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassInModuleOrNull(BuiltinClassLoader.java:741)
+
+# Created at 2025-01-15T14:28:40.680
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:665)
+
+# Created at 2025-01-15T14:28:40.680
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:700)
+
+# Created at 2025-01-15T14:28:40.681
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:669)
+
+# Created at 2025-01-15T14:28:40.685
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639)
+
+# Created at 2025-01-15T14:28:40.710
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+
+# Created at 2025-01-15T14:28:40.720
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+
+# Created at 2025-01-15T14:28:40.726
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+
+# Created at 2025-01-15T14:28:40.730
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3578)
+
+# Created at 2025-01-15T14:28:40.734
+	at java.base/java.lang.Class.privateGetPublicMethods(Class.java:3603)
+
+# Created at 2025-01-15T14:28:40.740
+	at java.base/java.lang.Class.getMethods(Class.java:2185)
+
+# Created at 2025-01-15T14:28:40.745
+	at org.junit.platform.commons.util.ReflectionUtils.getDefaultMethods(ReflectionUtils.java:1518)
+
+# Created at 2025-01-15T14:28:40.747
+	at org.junit.platform.commons.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:1491)
+
+# Created at 2025-01-15T14:28:40.748
+	at org.junit.platform.commons.util.ReflectionUtils.findMethod(ReflectionUtils.java:1341)
+
+# Created at 2025-01-15T14:28:40.748
+	at org.junit.platform.commons.util.ReflectionUtils.isMethodPresent(ReflectionUtils.java:1242)
+
+# Created at 2025-01-15T14:28:40.752
+	at org.junit.jupiter.engine.discovery.predicates.IsTestClassWithTests.hasTestOrTestFactoryOrTestTemplateMethods(IsTestClassWithTests.java:50)
+
+# Created at 2025-01-15T14:28:40.753
+	at org.junit.jupiter.engine.discovery.predicates.IsTestClassWithTests.test(IsTestClassWithTests.java:46)
+
+# Created at 2025-01-15T14:28:40.789
+	at org.junit.jupiter.engine.discovery.ClassSelectorResolver.resolve(ClassSelectorResolver.java:67)
+
+# Created at 2025-01-15T14:28:40.803
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.lambda$resolve$2(EngineDiscoveryRequestResolution.java:134)
+
+# Created at 2025-01-15T14:28:40.804
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+
+# Created at 2025-01-15T14:28:40.804
+	at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1685)
+
+# Created at 2025-01-15T14:28:40.805
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+
+# Created at 2025-01-15T14:28:40.805
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+
+# Created at 2025-01-15T14:28:40.865
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+
+# Created at 2025-01-15T14:28:40.867
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+
+# Created at 2025-01-15T14:28:40.905
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+
+# Created at 2025-01-15T14:28:40.906
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+
+# Created at 2025-01-15T14:28:40.920
+	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+
+# Created at 2025-01-15T14:28:40.921
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolve(EngineDiscoveryRequestResolution.java:185)
+
+# Created at 2025-01-15T14:28:40.921
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolve(EngineDiscoveryRequestResolution.java:125)
+
+# Created at 2025-01-15T14:28:40.960
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolveCompletely(EngineDiscoveryRequestResolution.java:91)
+
+# Created at 2025-01-15T14:28:40.972
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.run(EngineDiscoveryRequestResolution.java:82)
+
+# Created at 2025-01-15T14:28:40.973
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolver.resolve(EngineDiscoveryRequestResolver.java:113)
+
+# Created at 2025-01-15T14:28:40.973
+	at org.junit.jupiter.engine.discovery.DiscoverySelectorResolver.resolveSelectors(DiscoverySelectorResolver.java:46)
+
+# Created at 2025-01-15T14:28:40.973
+	at org.junit.jupiter.engine.JupiterTestEngine.discover(JupiterTestEngine.java:69)
+
+# Created at 2025-01-15T14:28:40.974
+	at org.junit.platform.launcher.core.DefaultLauncher.discoverEngineRoot(DefaultLauncher.java:130)
+
+# Created at 2025-01-15T14:28:40.974
+	at org.junit.platform.launcher.core.DefaultLauncher.discoverRoot(DefaultLauncher.java:117)
+
+# Created at 2025-01-15T14:28:40.975
+	at org.junit.platform.launcher.core.DefaultLauncher.discover(DefaultLauncher.java:82)
+
+# Created at 2025-01-15T14:28:40.975
+	at org.junit.platform.surefire.provider.TestPlanScannerFilter.accept(TestPlanScannerFilter.java:50)
+
+# Created at 2025-01-15T14:28:41.002
+	at org.apache.maven.surefire.util.DefaultScanResult.applyFilter(DefaultScanResult.java:102)
+
+# Created at 2025-01-15T14:28:41.012
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.scanClasspath(JUnitPlatformProvider.java:121)
+
+# Created at 2025-01-15T14:28:41.014
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111)
+
+# Created at 2025-01-15T14:28:41.015
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+
+# Created at 2025-01-15T14:28:41.015
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+
+# Created at 2025-01-15T14:28:41.016
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+
+# Created at 2025-01-15T14:28:41.016
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+# Created at 2025-01-15T14:28:41.017
+Caused by: java.io.IOException: Error while instrumenting java/sql/SQLException.
+
+# Created at 2025-01-15T14:28:41.017
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrumentError(Instrumenter.java:159)
+
+# Created at 2025-01-15T14:28:41.018
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:109)
+
+# Created at 2025-01-15T14:28:41.018
+	at org.jacoco.agent.rt.internal_43f5073.CoverageTransformer.transform(CoverageTransformer.java:92)
+
+# Created at 2025-01-15T14:28:41.019
+	... 53 more
+
+# Created at 2025-01-15T14:28:41.019
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+
+# Created at 2025-01-15T14:28:41.020
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:195)
+
+# Created at 2025-01-15T14:28:41.020
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:176)
+
+# Created at 2025-01-15T14:28:41.024
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:162)
+
+# Created at 2025-01-15T14:28:41.045
+	at org.jacoco.agent.rt.internal_43f5073.core.internal.instr.InstrSupport.classReaderFor(InstrSupport.java:280)
+
+# Created at 2025-01-15T14:28:41.051
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:75)
+
+# Created at 2025-01-15T14:28:41.057
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:107)
+
+# Created at 2025-01-15T14:28:41.062
+	... 54 more
+

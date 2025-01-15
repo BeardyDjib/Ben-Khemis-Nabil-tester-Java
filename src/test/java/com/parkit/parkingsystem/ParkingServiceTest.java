@@ -13,7 +13,6 @@ import org.mockito.Mockito;
 
 import java.util.Date;
 
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.assertj.core.api.Assertions.assertThat;
