@@ -25,19 +25,19 @@ import java.math.BigDecimal;
         }
 <span class="fc" id="L26">        double hours = (double) duration / (60 * 60 * 1000);</span>
 
-        
-<span class="pc bpc" id="L29" title="1 of 3 branches missed.">            switch (ticket.getParkingSpot().getParkingType()) {</span>
-                case CAR: {
-<span class="fc" id="L31">                    ticket.setPrice(hours * Fare.CAR_RATE_PER_HOUR);</span>
-<span class="fc" id="L32">                    break;</span>
-                }
-                case BIKE: {
-<span class="fc" id="L35">                    ticket.setPrice(hours * Fare.BIKE_RATE_PER_HOUR);</span>
-<span class="fc" id="L36">                    break;</span>
-                }
-                default:
-<span class="nc" id="L39">                    throw new IllegalArgumentException(&quot;Unkown Parking Type&quot;);</span>
+
+<span class="pc bpc" id="L29" title="1 of 3 branches missed.">        switch (ticket.getParkingSpot().getParkingType()) {</span>
+            case CAR: {
+<span class="fc" id="L31">                ticket.setPrice(hours * Fare.CAR_RATE_PER_HOUR);</span>
+<span class="fc" id="L32">                break;</span>
             }
+            case BIKE: {
+<span class="fc" id="L35">                ticket.setPrice(hours * Fare.BIKE_RATE_PER_HOUR);</span>
+<span class="fc" id="L36">                break;</span>
+            }
+            default:
+<span class="nc" id="L39">                throw new IllegalArgumentException(&quot;Unkown Parking Type&quot;);</span>
+        }
 <span class="fc bfc" id="L41" title="All 2 branches covered.">        if (discount) {</span>
 <span class="fc" id="L42">            ticket.setPrice(ticket.getPrice() * 0.95); // Apply 5% discount</span>
         }

@@ -126,9 +126,9 @@ public class ParkingService {
 
             // Step 4: Check if the user is recurring
             int previousTickets = ticketDAO.getNbTicket(vehicleRegNumber);
-            boolean discount = previousTickets > 1; // Apply discount if the user is recurring
+            boolean discount = previousTickets > 1; // Apply discount if not the first passage
 
-            // Step 5: Adding Calculate the fare with the discount
+            // Step 5: Calculate the fare with the discount
             fareCalculatorService.calculateFare(ticket, discount);
 
             // Step 6: Update the ticket in the database
@@ -138,9 +138,12 @@ public class ParkingService {
                 parkingSpot.setAvailable(true);
                 parkingSpotDAO.updateParking(parkingSpot);
 
-                // Step 8: Payment information
-                System.out.println("Please pay the parking fare:" + ticket.getPrice());
-                System.out.println("Recorded out-time for vehicle number:" + vehicleRegNumber + " is:" + outTime);
+                // Step 8: Display payment information
+                if (discount) {
+                    System.out.println("Welcome back! You received a loyalty discount. ");
+                }
+                System.out.println("Please pay the parking fare: " + ticket.getPrice());
+                System.out.println("Recorded out-time for vehicle number: " + vehicleRegNumber + " is: " + outTime);
             } else {
                 System.out.println("Unable to update ticket information. Error occurred");
             }

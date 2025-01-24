@@ -5,6 +5,7 @@ import com.parkit.parkingsystem.dao.ParkingSpotDAO;
 import com.parkit.parkingsystem.dao.TicketDAO;
 import com.parkit.parkingsystem.model.ParkingSpot;
 import com.parkit.parkingsystem.model.Ticket;
+import com.parkit.parkingsystem.service.FareCalculatorService;
 import com.parkit.parkingsystem.service.ParkingService;
 import com.parkit.parkingsystem.util.InputReaderUtil;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,6 +32,9 @@ public class ParkingDataBaseIT {
 
     @InjectMocks
     private ParkingService parkingService;
+
+    @Mock
+    private FareCalculatorService fareCalculatorService;
 
     @BeforeEach
     public void setUpPerTest() {
@@ -73,7 +77,6 @@ public class ParkingDataBaseIT {
         assertNotNull(ticket.getOutTime(), "Out time should be populated");
         assertTrue(ticket.getPrice() > 0, "Fare should be calculated and greater than 0");
     }
-
     @Test
     void testParkingLotExitRecurringUser() throws Exception {
         // GIVEN: Simulate a recurring user with previous tickets
@@ -112,4 +115,5 @@ public class ParkingDataBaseIT {
         double actualPrice = ticket.getPrice();
         assertEquals(expectedPrice, actualPrice, 0.01, "The price should be reduced by 5% for recurring users");
     }
+
 }
